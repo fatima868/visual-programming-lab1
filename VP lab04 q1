@@ -1,0 +1,48 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Menu for user selection
+        Console.WriteLine("Select an option:");
+        Console.WriteLine("1. Convert Decimal to Binary");
+        Console.WriteLine("2. Convert Binary to Decimal");
+        int option = int.Parse(Console.ReadLine());
+
+        switch (option)
+        {
+            case 1:
+                // Decimal to Binary
+                Console.Write("Enter a decimal number: ");
+                int decimalNumber = int.Parse(Console.ReadLine());
+                string binaryResult = DecimalToBinary(decimalNumber);
+                Console.WriteLine($"Binary representation: {binaryResult}");
+                break;
+
+            case 2:
+                // Binary to Decimal
+                Console.Write("Enter a binary number: ");
+                string binaryNumber = Console.ReadLine();
+                int decimalResult = BinaryToDecimal(binaryNumber);
+                Console.WriteLine($"Decimal representation: {decimalResult}");
+                break;
+
+            default:
+                Console.WriteLine("Invalid option selected.");
+                break;
+        }
+    }
+
+    // Function to convert decimal to binary
+    static string DecimalToBinary(int decimalNumber)
+    {
+        return Convert.ToString(decimalNumber, 2);  // Convert to binary string
+    }
+
+    // Function to convert binary to decimal
+    static int BinaryToDecimal(string binaryNumber)
+    {
+        return Convert.ToInt32(binaryNumber, 2);  // Convert binary string to decimal
+    }
+}
